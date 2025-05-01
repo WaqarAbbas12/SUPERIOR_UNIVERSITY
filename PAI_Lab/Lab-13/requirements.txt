@@ -1,0 +1,8 @@
+dotenv
+Flask
+langchain
+PyPDF2
+huggingface_hub
+gradio
+openai
+weaviate-client

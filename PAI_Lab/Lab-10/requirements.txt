@@ -1,0 +1,5 @@
+weaviate-client
+streamlit
+openai
+pandas
+dotenv

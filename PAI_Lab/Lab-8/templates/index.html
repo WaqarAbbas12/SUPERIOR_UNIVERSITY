@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Travel Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Space Travel Calculator</h1>
+        
+        <div class="space-scene">
+            <img src="{{ url_for('static', filename='images/Earth.png') }}" class="earth" alt="Earth">
+            <img src="{{ url_for('static', filename='images/planet.png') }}" class="planet" alt="Planet">
+            <img src="{{ url_for('static', filename='images/rocket.png') }}" class="rocket" alt="Rocket">
+        </div>
+
+        <form method="POST">
+            <label for="planet">Choose a Planet:</label>
+            <select name="planet" id="planet" required>
+                <option value="" disabled selected>Select a planet</option>
+                {% for planet in planets %}
+                    <option value="{{ planet['pl_name'] }}">{{ planet['pl_name'] }}</option>
+                {% endfor %}
+            </select>
+            
+            <label for="efficiency">Fuel Efficiency:</label>
+            <input type="number" name="efficiency" id="efficiency" step="0.1" min="0.1" value="1">
+
+            <button type="submit">Calculate Cost</button>
+        </form>
+
+        {% if cost %}
+            <div class="result">
+                <h2>🌍 Cost to {{ selected_planet }}: ${{ cost }}</h2>
+            </div>
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    setTimeout(() => {
+                        document.querySelector('.rocket').classList.add('move');
+                    }, 1000);
+                });
+            </script>
+        {% endif %}
+    </div>
+</body>
+</html>

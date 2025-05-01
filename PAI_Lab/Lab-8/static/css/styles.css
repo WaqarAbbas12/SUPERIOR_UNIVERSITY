@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #0b0c10;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.space-scene {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.space-scene img {
+    position: absolute;
+    transform: translateY(-50%);
+    max-width: 80px;
+    height: auto;
+}
+
+.earth {
+    left: 10%;
+    top: 50%;
+    width: 80px;
+}
+
+.planet {
+    right: 10%;
+    top: 50%;
+    width: 100px;
+}
+
+.rocket {
+    left: 12%;
+    top: 50%;
+    width: 50px;
+    transition: transform 5s ease-in-out, left 5s ease-in-out;
+}
+
+.rocket.move {
+    left: 80%;
+}
